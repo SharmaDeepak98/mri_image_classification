@@ -1,0 +1,15 @@
+Astrocitoma
+Carcinoma
+Ependimoma
+Ganglioglioma
+Germinoma
+Glioblastoma
+Granuloma
+Meduloblastoma
+Meningioma
+Neurocitoma
+Normal
+Oligodendroglioma
+Papiloma
+Schwannoma
+Tuberculoma
