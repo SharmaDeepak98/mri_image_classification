@@ -19,8 +19,7 @@ class MyApp extends StatelessWidget {
     precacheImage(const AssetImage("assets/images/brain.png"), context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: SplashPage(showHome: showHome),
-      home: OnBoardingPage(),
+      home: SplashPage(showHome: showHome),
     );
   }
 }
