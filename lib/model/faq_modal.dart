@@ -45,5 +45,5 @@ List<FaqModal> FAQs = [
   FaqModal(
       title: 'Where can I get support or report issues?',
       description:
-          "For support or to report any issues, please contact any of the application developer mentioned in about developer page. We value your feedback and are committed to addressing any concerns promptly."),
+          "For support or to report any issues, please contact any of the developer mentioned in about developer page. We value your feedback and are committed to addressing any concerns promptly."),
 ];

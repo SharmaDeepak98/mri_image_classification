@@ -38,7 +38,7 @@ class IntroPage1 extends StatelessWidget {
             const SizedBox(height: 6.0),
             Text(
               description,
-              textAlign: TextAlign.left,
+              textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 14.0,
                 fontWeight: FontWeight.w400,

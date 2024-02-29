@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:mri_detection/extensions/app_color.dart';
-import 'package:mri_detection/pages/homePage.dart';
+import 'package:mri_detection/pages/home_page.dart';
 import 'package:mri_detection/pages/onboarding_page.dart';
 
 class SplashPage extends StatelessWidget {

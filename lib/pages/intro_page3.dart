@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:get/get.dart';
-import '../extensions/app_color.dart';
 
 class IntroPage3 extends StatefulWidget {
   const IntroPage3({Key, key}) : super(key: key);
@@ -11,48 +8,6 @@ class IntroPage3 extends StatefulWidget {
 }
 
 class _IntroPage3State extends State<IntroPage3> {
-  // String _permissionStatus = '';
-  // Future<void> _requestPermission() async {
-  //   PermissionStatus status = await Permission.camera.request();
-  //   setState(() {
-  //     if (status.isGranted) {
-  //       _permissionStatus = 'Permission Granted';
-  //       Get.snackbar(
-  //         _permissionStatus,
-  //         'Thank you for your permission.',
-  //         snackPosition: SnackPosition.TOP,
-  //         duration: const Duration(seconds: 3),
-  //         backgroundColor: color1,
-  //         colorText: Colors.white,
-  //         // padding: EdgeInsets.symmetric(
-  //         //   horizontal: 15.0.wp,
-  //         //   vertical: 3.0.wp,
-  //         // ),
-  //       );
-  //     } else if (status.isDenied) {
-  //       _permissionStatus = 'Permission Denied';
-  //       Get.snackbar(
-  //         _permissionStatus,
-  //         'This app requires the Camera and Gallery permission in order to classify the breed.',
-  //         snackPosition: SnackPosition.TOP,
-  //         duration: const Duration(seconds: 3),
-  //         backgroundColor: color1,
-  //         colorText: Colors.black,
-  //       );
-  //     } else if (status.isPermanentlyDenied) {
-  //       _permissionStatus = 'Permission Permanently Denied!';
-  //       Get.snackbar(
-  //         _permissionStatus,
-  //         'This app requires the Camera and Gallery permission in order to classify the breed.',
-  //         snackPosition: SnackPosition.TOP,
-  //         duration: const Duration(seconds: 3),
-  //         backgroundColor: color1,
-  //         colorText: Colors.black,
-  //       );
-  //     }
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Container(

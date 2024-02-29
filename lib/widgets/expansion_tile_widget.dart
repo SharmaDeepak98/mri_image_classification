@@ -5,21 +5,21 @@ class ExpansionTileWidget extends StatelessWidget {
       {super.key,
       required this.title,
       required this.description,
-      this.image,
       required this.index});
 
   final String title;
   final String description;
   final String index;
-  Widget? image;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         ExpansionTile(
+          childrenPadding:
+              const EdgeInsets.only(left: 24.0, right: 24.0, bottom: 10.0),
           leading: Text(
-            index,
+            '$index.',
             style: TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
@@ -35,15 +35,12 @@ class ExpansionTileWidget extends StatelessWidget {
             ),
           ),
           children: <Widget>[
-            //if (image != null) image!,
-            ListTile(
-              title: Text(
-                description,
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.black.withOpacity(0.7),
-                  letterSpacing: 0.4,
-                ),
+            Text(
+              description,
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.black.withOpacity(0.7),
+                letterSpacing: 0.4,
               ),
             ),
           ],

@@ -14,8 +14,8 @@ class ScannerView extends StatefulWidget {
 class _ScannerViewState extends State<ScannerView> {
   late ImagePicker picker;
   File? _image;
-  String dogBreed = '';
-  String dogProb = '';
+  String brainTumor = '';
+  String tumorProb = '';
   late List output;
 
   @override
@@ -27,11 +27,11 @@ class _ScannerViewState extends State<ScannerView> {
     });
   }
 
-  @override
-  void dispose() async {
-    await Tflite.close();
-    super.dispose();
-  }
+  // @override
+  // void dispose() async {
+  //   await Tflite.close();
+  //   super.dispose();
+  // }
 
   imageFromGallery() async {
     final XFile? pickFile = await picker.pickImage(
@@ -58,7 +58,7 @@ class _ScannerViewState extends State<ScannerView> {
     List? recognitions;
     try {
       recognitions = await Tflite.runModelOnImage(
-        path: image!.path,
+        path: image.path,
         imageMean: 127.5,
         imageStd: 127.5,
         numResults: 2,
@@ -66,14 +66,25 @@ class _ScannerViewState extends State<ScannerView> {
         asynch: true,
       );
     } catch (e) {
-      print('Exception occurred 💥💥💥: $e');
+      //print('Exception occurred 💥💥💥: $e');
     }
-    print('Print: $recognitions');
+
     setState(() {
       output = recognitions!;
-      dogBreed = output[0]['label'];
-      dogProb = (output[0]['confidence'] * 100).toStringAsFixed(2);
+      brainTumor = output[0]['label'];
+      tumorProb = (output[0]['confidence'] * 100).toStringAsFixed(2);
     });
+    final snackBar = SnackBar(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6.0),
+      content: Text(
+        'The predicted tumor is $brainTumor with $tumorProb% precision.',
+        style: const TextStyle(color: Colors.black),
+      ),
+      backgroundColor: color1,
+      behavior: SnackBarBehavior.floating,
+      duration: const Duration(seconds: 5),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   loadModel() async {
@@ -145,9 +156,9 @@ class _ScannerViewState extends State<ScannerView> {
             ),
           ),
           Text(
-            _image == null
+            brainTumor == ''
                 ? 'Precision - Brain Tumor'
-                : '$dogProb% - $dogBreed',
+                : '$tumorProb% - $brainTumor',
             style: const TextStyle(
               fontSize: 24,
               color: Colors.green,
@@ -174,7 +185,22 @@ class _ScannerViewState extends State<ScannerView> {
                 },
               ),
             ],
-          )
+          ),
+          const SizedBox(height: 34),
+          tumorProb != ''
+              ? Text(
+                  'Want more info on $brainTumor?',
+                  style: const TextStyle(
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                    decorationColor: Colors.blue,
+                    decorationThickness: 2.0,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16.0, // Font size
+                  ),
+                )
+              : const SizedBox.shrink(),
         ],
       ),
     );
@@ -194,7 +220,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      splashColor: Colors.transparent,
+      splashColor: Colors.white,
       onTap: () {
         onTap();
       },

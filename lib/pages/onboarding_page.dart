@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mri_detection/extensions/app_color.dart';
-import 'package:mri_detection/pages/homePage.dart';
+import 'package:mri_detection/pages/home_page.dart';
 import 'intro_page1.dart';
 import 'intro_page2.dart';
 import 'intro_page3.dart';

@@ -15,7 +15,6 @@ class AboutTumor extends StatefulWidget {
 class _AboutTumorState extends State<AboutTumor> {
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -42,10 +41,6 @@ class _AboutTumorState extends State<AboutTumor> {
             child: ExpansionTileWidget(
               title: tumor.tumorName,
               description: tumor.tumorDes,
-              image: Image.asset(tumor.imageUrl,
-                  fit: BoxFit.cover,
-                  width: screenWidth * 0.4,
-                  height: screenWidth * 0.4),
               index: (index + 1).toString(),
             ),
           );
