@@ -3,23 +3,42 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:mri_detection/pages/home_page.dart';
 import 'package:mri_detection/pages/onboarding_page.dart';
 
-class SplashPage extends StatelessWidget {
-  SplashPage({Key? key, required this.showHome}) : super(key: key);
+class SplashPage extends StatefulWidget {
+  const SplashPage({Key? key, required this.showHome}) : super(key: key);
   final bool showHome;
 
   @override
-  Widget build(BuildContext context) {
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  bool showText = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(const Duration(milliseconds: 1500), () {
+      setState(() {
+        showText = true;
+      });
+    });
+
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) =>
-              showHome ? const HomePage() : const OnBoardingPage(),
+              widget.showHome ? const HomePage() : const OnBoardingPage(),
         ),
       );
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     EasyLoading.instance
-      ..displayDuration = const Duration(milliseconds: 2000)
+      ..displayDuration = const Duration(milliseconds: 3000)
       ..indicatorType = EasyLoadingIndicatorType.hourGlass
       ..loadingStyle = EasyLoadingStyle.custom
       ..indicatorSize = 45.0
@@ -45,15 +64,17 @@ class SplashPage extends StatelessWidget {
               height: 130,
             ),
             const SizedBox(height: 10),
-            Text(
-              'Brain Tumor Classification',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w500,
-                color: Colors.blue.withOpacity(0.4),
-                letterSpacing: 2,
-              ),
-            ),
+            showText
+                ? Text(
+                    'Brain Tumor Classification',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.blue.withOpacity(0.4),
+                      letterSpacing: 2,
+                    ),
+                  )
+                : const SizedBox(height: 26),
           ],
         ),
       ),
