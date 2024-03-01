@@ -191,9 +191,9 @@ class _ScannerViewState extends State<ScannerView> {
             ],
           ),
           const SizedBox(height: 34),
-          brainTumor != '' || brainTumor != 'Other'
+          brainTumor != ''
               ? Text(
-                  'Want more info on $brainTumor?',
+                  brainTumor != 'Other' ? 'Want more info on $brainTumor?' : '',
                   style: const TextStyle(
                     color: Colors.blue,
                     decoration: TextDecoration.underline,
