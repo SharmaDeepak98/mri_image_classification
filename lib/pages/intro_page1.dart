@@ -14,36 +14,40 @@ class IntroPage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: color1,
+      //color: color1,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            'assets/images/bg_onboarding1.png',
+          ),
+          fit: BoxFit.cover,
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(40),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            const SizedBox(height: 10.0),
-            Image.asset(
-              image,
-              height: 140.0,
-              fit: BoxFit.cover,
-            ),
-            const SizedBox(height: 40.0),
             Text(
               title,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 18,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
+                color: Color(0xFFFFF6E9),
               ),
             ),
-            const SizedBox(height: 6.0),
+            const SizedBox(height: 12.0),
             Text(
               description,
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14.0,
                 fontWeight: FontWeight.w400,
+                color: const Color(0xFFFFF6E9).withOpacity(0.8),
               ),
-            )
+            ),
+            const SizedBox(height: 130),
           ],
         ),
       ),

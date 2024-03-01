@@ -74,10 +74,14 @@ class _ScannerViewState extends State<ScannerView> {
       brainTumor = output[0]['label'];
       tumorProb = (output[0]['confidence'] * 100).toStringAsFixed(2);
     });
+
+    /////////////////[SNACKBAR]/////////////////////////
     final snackBar = SnackBar(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6.0),
       content: Text(
-        'The predicted tumor is $brainTumor with $tumorProb% precision.',
+        brainTumor != 'Other'
+            ? 'The predicted tumor is $brainTumor with $tumorProb% precision.'
+            : 'The picture you uploaded doesn\'t seem to be MRI Image. Please upload the MRI images only to classify brain tumor.',
         style: const TextStyle(color: Colors.black),
       ),
       backgroundColor: color1,
@@ -156,7 +160,7 @@ class _ScannerViewState extends State<ScannerView> {
             ),
           ),
           Text(
-            brainTumor == ''
+            brainTumor == '' || brainTumor == 'Other'
                 ? 'Precision - Brain Tumor'
                 : '$tumorProb% - $brainTumor',
             style: const TextStyle(
@@ -187,7 +191,7 @@ class _ScannerViewState extends State<ScannerView> {
             ],
           ),
           const SizedBox(height: 34),
-          tumorProb != ''
+          brainTumor != '' || brainTumor != 'Other'
               ? Text(
                   'Want more info on $brainTumor?',
                   style: const TextStyle(

@@ -87,14 +87,14 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     width: double.infinity,
                     height: 50,
                     decoration: BoxDecoration(
-                      color: color2,
+                      color: const Color(0xFF40A2E3),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: Center(
                       child: Text(
                         onLastPage ? 'Get started' : 'Next',
                         style: const TextStyle(
-                            color: Colors.white,
+                            color: Color(0xFFFFF6E9),
                             fontSize: 20,
                             fontWeight: FontWeight.w600),
                       ),
