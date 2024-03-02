@@ -45,6 +45,9 @@ dependencies:
   permission_handler: ^11.3.0
   smooth_page_indicator: ^1.1.0
   shared_preferences: ^2.2.2
+  gradient_icon: ^2.0.9
+  gradient_borders: ^1.0.0
+  rich_text_widget: ^0.2.7
 
 dev_dependencies:
   flutter_test:

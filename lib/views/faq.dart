@@ -29,7 +29,20 @@ class _FAQState extends State<FAQ> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          backgroundColor: color1,
+          // backgroundColor: color1,
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
+                  Color(0xFFFDD1CE),
+                  Color(0xFF3A99FF),
+                  Color(0xFF9AD0DC)
+                ],
+              ),
+            ),
+          ),
           centerTitle: true,
         ),
         body: ListView.builder(

@@ -3,6 +3,8 @@ import 'package:mri_detection/extensions/app_color.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:flutter_tflite/flutter_tflite.dart';
+import 'package:gradient_borders/gradient_borders.dart';
+import 'package:gradient_icon/gradient_icon.dart';
 
 class ScannerView extends StatefulWidget {
   const ScannerView({super.key});
@@ -114,7 +116,16 @@ class _ScannerViewState extends State<ScannerView> {
             height: screenHeight * 0.42,
             width: screenWidth,
             decoration: BoxDecoration(
-              color: color2,
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  const Color(0xFFFDD1CE),
+                  const Color(0xFF3A99FF),
+                  const Color(0xFF9AD0DC)
+                ],
+              ),
+              // color: color2,
               borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(40),
                   bottomRight: Radius.circular(40)),
@@ -169,7 +180,7 @@ class _ScannerViewState extends State<ScannerView> {
               letterSpacing: 0.4,
             ),
           ),
-          const SizedBox(height: 60),
+          const SizedBox(height: 80),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -229,20 +240,48 @@ class CustomButton extends StatelessWidget {
         onTap();
       },
       child: Container(
-        height: 150,
-        width: 150,
+        height: 140,
+        width: 140,
+
         decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(color: color2, width: 8),
+          // shape: BoxShape.circle,
+          borderRadius: BorderRadius.circular(20),
+          border: GradientBoxBorder(
+              gradient: LinearGradient(
+                colors: [
+                  const Color(0xFFFDD1CE),
+                  const Color(0xFF3A99FF),
+                  const Color(0xFF9AD0DC),
+                ],
+              ),
+              width: 3),
         ),
+
         padding: const EdgeInsets.only(top: 20, bottom: 10),
+
         child: Column(
           children: [
-            Icon(icon!, color: color2, size: 70),
+            GradientIcon(
+              icon: icon!,
+              size: 60,
+              gradient: LinearGradient(
+                colors: [
+                  const Color(0xFFFDD1CE),
+                  const Color(0xFF3A99FF),
+                  const Color(0xFF9AD0DC),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+            // Icon(icon!, color: color4, size: 70),
+            SizedBox(
+              height: 8,
+            ),
             Text(
               title!,
               style: TextStyle(
-                color: color2,
+                color: Colors.black.withOpacity(0.6),
                 fontSize: 15,
                 fontWeight: FontWeight.w900,
               ),

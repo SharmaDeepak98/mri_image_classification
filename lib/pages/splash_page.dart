@@ -18,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(milliseconds: 1500), () {
+    Future.delayed(const Duration(milliseconds: 000), () {
       setState(() {
         showText = true;
       });
@@ -38,7 +38,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     EasyLoading.instance
-      ..displayDuration = const Duration(milliseconds: 3000)
+      ..displayDuration = const Duration(milliseconds: 2000)
       ..indicatorType = EasyLoadingIndicatorType.hourGlass
       ..loadingStyle = EasyLoadingStyle.custom
       ..indicatorSize = 45.0
@@ -59,19 +59,19 @@ class _SplashPageState extends State<SplashPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/brain.png',
-              width: 235,
-              height: 130,
+              'assets/images/splash.png',
+              width: 300,
+              height: 160,
             ),
             const SizedBox(height: 10),
             showText
                 ? Text(
                     'Brain Tumor Classification',
                     style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.blue.withOpacity(0.4),
-                      letterSpacing: 2,
+                      fontSize: 28,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.blue.withOpacity(0.6),
+                      letterSpacing: 1,
                     ),
                   )
                 : const SizedBox(height: 26),
