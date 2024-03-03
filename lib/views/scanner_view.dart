@@ -3,8 +3,8 @@ import 'package:mri_detection/extensions/app_color.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:flutter_tflite/flutter_tflite.dart';
-import 'package:gradient_borders/gradient_borders.dart';
 import 'package:gradient_icon/gradient_icon.dart';
+import '../model/tumor.dart';
 
 class ScannerView extends StatefulWidget {
   const ScannerView({super.key});
@@ -84,11 +84,11 @@ class _ScannerViewState extends State<ScannerView> {
         brainTumor != 'Other'
             ? 'The predicted tumor is $brainTumor with $tumorProb% precision.'
             : 'The picture you uploaded doesn\'t seem to be MRI Image. Please upload the MRI images only to classify brain tumor.',
-        style: const TextStyle(color: Colors.black),
+        style: const TextStyle(color: Colors.white),
       ),
-      backgroundColor: color1,
+      backgroundColor: brainTumor == 'Other' ? Colors.red : color1,
       behavior: SnackBarBehavior.floating,
-      duration: const Duration(seconds: 5),
+      duration: const Duration(seconds: 4),
     );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
@@ -116,19 +116,20 @@ class _ScannerViewState extends State<ScannerView> {
             height: screenHeight * 0.42,
             width: screenWidth,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  const Color(0xFFFDD1CE),
-                  const Color(0xFF3A99FF),
-                  const Color(0xFF9AD0DC)
+                  Color(0xFFFDD1CE),
+                  Color(0xFF3A99FF),
+                  Color(0xFF9AD0DC)
                 ],
               ),
               // color: color2,
               borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(40),
-                  bottomRight: Radius.circular(40)),
+                bottomLeft: Radius.circular(40),
+                bottomRight: Radius.circular(40),
+              ),
               boxShadow: const [
                 BoxShadow(
                   blurRadius: 10.0,
@@ -171,7 +172,7 @@ class _ScannerViewState extends State<ScannerView> {
             ),
           ),
           Text(
-            brainTumor == '' || brainTumor == 'Other'
+            brainTumor == ''
                 ? 'Precision - Brain Tumor'
                 : '$tumorProb% - $brainTumor',
             style: const TextStyle(
@@ -203,16 +204,50 @@ class _ScannerViewState extends State<ScannerView> {
           ),
           const SizedBox(height: 34),
           brainTumor != ''
-              ? Text(
-                  brainTumor != 'Other' ? 'Want more info on $brainTumor?' : '',
-                  style: const TextStyle(
-                    color: Colors.blue,
-                    decoration: TextDecoration.underline,
-                    decorationColor: Colors.blue,
-                    decorationThickness: 2.0,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16.0, // Font size
+              ? GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 24.0, vertical: 16),
+                            child: SingleChildScrollView(
+                              physics: const BouncingScrollPhysics(),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    brainTumor,
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(tumors
+                                      .firstWhere((element) => element.tumorName
+                                          .contains(brainTumor))
+                                      .tumorDes),
+                                ],
+                              ),
+                            ),
+                          );
+                        });
+                  },
+                  child: Text(
+                    brainTumor != 'Other'
+                        ? 'Want more info on $brainTumor?'
+                        : '',
+                    style: const TextStyle(
+                      color: Colors.blue,
+                      decoration: TextDecoration.underline,
+                      decorationColor: Colors.blue,
+                      decorationThickness: 2.0,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0, // Font size
+                    ),
                   ),
                 )
               : const SizedBox.shrink(),
@@ -242,19 +277,9 @@ class CustomButton extends StatelessWidget {
       child: Container(
         height: 140,
         width: 140,
-
         decoration: BoxDecoration(
-          // shape: BoxShape.circle,
           borderRadius: BorderRadius.circular(20),
-          border: GradientBoxBorder(
-              gradient: LinearGradient(
-                colors: [
-                  const Color(0xFFFDD1CE),
-                  const Color(0xFF3A99FF),
-                  const Color(0xFF9AD0DC),
-                ],
-              ),
-              width: 3),
+          border: Border.all(color: Colors.blue.withOpacity(0.7), width: 4.0),
         ),
 
         padding: const EdgeInsets.only(top: 20, bottom: 10),
@@ -264,24 +289,21 @@ class CustomButton extends StatelessWidget {
             GradientIcon(
               icon: icon!,
               size: 60,
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                 colors: [
-                  const Color(0xFFFDD1CE),
-                  const Color(0xFF3A99FF),
-                  const Color(0xFF9AD0DC),
+                  Color(0xFFFDD1CE),
+                  Color(0xFF3A99FF),
+                  Color(0xFF9AD0DC),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
             ),
-            // Icon(icon!, color: color4, size: 70),
-            SizedBox(
-              height: 8,
-            ),
+            const SizedBox(height: 12),
             Text(
               title!,
               style: TextStyle(
-                color: Colors.black.withOpacity(0.6),
+                color: Colors.black.withOpacity(0.5),
                 fontSize: 15,
                 fontWeight: FontWeight.w900,
               ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../extensions/app_color.dart';
 
 class IntroPage1 extends StatelessWidget {
   const IntroPage1({

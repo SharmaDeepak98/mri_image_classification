@@ -17,6 +17,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     precacheImage(const AssetImage("assets/images/brain.png"), context);
+    precacheImage(
+        const AssetImage("assets/images/bg_onboarding1.png"), context);
+    precacheImage(
+        const AssetImage("assets/images/bg_onboarding2.png"), context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashPage(showHome: showHome),

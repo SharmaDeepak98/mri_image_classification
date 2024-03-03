@@ -9,15 +9,15 @@ List<FaqModal> FAQs = [
   FaqModal(
       title: 'What is the purpose of the MRI Brain Tumor Classification App?',
       description:
-          "The MRI Brain Tumor Classification App is designed to assist in the automated classification of brain tumors based on MRI scans. It utilizes machine learning models to classify images into 15 different classes, providing valuable insights for medical professionals in the diagnosis and treatment of brain tumors."),
+          "The MRI Brain Tumor Classification App is designed to assist in the automated classification of brain tumors based on MRI scans. It utilizes machine learning models to classify images into 13 different classes, providing valuable insights for medical professionals in the diagnosis and treatment of brain tumors."),
   FaqModal(
       title: 'How does the app work?',
       description:
           "The app employs deep learning techniques to analyze MRI scans. Users can upload an MRI image through the app, and the machine learning model will process the image and provide a classification result indicating the type of tumor present."),
   FaqModal(
-      title: 'What are the 15 different classes the app can classify?',
+      title: 'What are the 13 different classes the app can classify?',
       description:
-          "The app can classify brain tumors into 15 distinct categories, including but not limited to glioblastoma, meningioma, pituitary tumor, acoustic neuroma, and more. Each class represents a specific type of brain tumor."),
+          "The app can classify brain tumors into 13 distinct categories, including but not limited to glioblastoma, meningioma, pituitary tumor, acoustic neuroma, and more. Each class represents a specific type of brain tumor."),
   FaqModal(
       title: 'How accurate is the classification?',
       description:

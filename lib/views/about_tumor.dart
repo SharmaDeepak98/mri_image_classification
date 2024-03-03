@@ -46,34 +46,21 @@ class _AboutTumorState extends State<AboutTumor> {
           ),
         ),
       ),
-      body: Container(
-        // decoration: const BoxDecoration(
-        //   gradient: LinearGradient(
-        //     begin: Alignment.topLeft,
-        //     end: Alignment.bottomCenter,
-        //     colors: <Color>[
-        //       Color(0xFFFDD1CE),
-        //       Color(0xFF3A99FF),
-        //       Color(0xFF9AD0DC)
-        //     ],
-        //   ),
-        // ),
-        child: ListView.builder(
-          itemCount: tumors.length,
-          itemBuilder: (context, index) {
-            Tumor tumor = tumors[index];
-            return Card(
-              child: Container(
-                decoration: BoxDecoration(color: Colors.white),
-                child: ExpansionTileWidget(
-                  title: tumor.tumorName,
-                  description: tumor.tumorDes,
-                  index: (index + 1).toString(),
-                ),
+      body: ListView.builder(
+        itemCount: tumors.length,
+        itemBuilder: (context, index) {
+          Tumor tumor = tumors[index];
+          return Card(
+            child: Container(
+              decoration: const BoxDecoration(color: Colors.white),
+              child: ExpansionTileWidget(
+                title: tumor.tumorName,
+                description: tumor.tumorDes,
+                index: (index + 1).toString(),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }
