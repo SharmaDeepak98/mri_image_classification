@@ -1,7 +1,5 @@
 Astrocitoma
 Carcinoma
-Ependimoma
-Ganglioglioma
 Germinoma
 Glioblastoma
 Granuloma
@@ -11,6 +9,5 @@ Neurocitoma
 Normal
 Oligodendroglioma
 Other
-Papiloma
 Schwannoma
 Tuberculoma
