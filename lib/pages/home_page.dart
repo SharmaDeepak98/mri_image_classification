@@ -36,7 +36,17 @@ class _HomePageState extends State<HomePage> {
         ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
-              color: color1,
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
+                  Color(0xFFFDD1CE),
+                  Color(0xFF3A99FF),
+                  Color(0xFF9AD0DC)
+                ],
+              ),
+
+              // color: color1,
               boxShadow: [
                 BoxShadow(blurRadius: 20, color: Colors.black.withOpacity(.3))
               ],
@@ -51,12 +61,12 @@ class _HomePageState extends State<HomePage> {
                 hoverColor: Colors.grey[100]!,
                 gap: 8,
                 activeColor: Colors.black,
-                iconSize: 24,
+                iconSize: 26,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                 duration: const Duration(milliseconds: 400),
                 tabBackgroundColor: color2,
-                color: Colors.black,
+                color: Colors.black.withOpacity(0.5),
                 tabs: const [
                   GButton(
                     icon: LineIcons.retroCamera,

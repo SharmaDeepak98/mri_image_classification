@@ -248,6 +248,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.6"
+  gradient_borders:
+    dependency: "direct main"
+    description:
+      name: gradient_borders
+      sha256: "69eeaff519d145a4c6c213ada1abae386bcc8981a4970d923e478ce7ba19e309"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  gradient_icon:
+    dependency: "direct main"
+    description:
+      name: gradient_icon
+      sha256: "5852c1f44825e49d479c91602b5e9e17a4fbc49af69ac314b1f906b0c62c6193"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.9"
   http:
     dependency: transitive
     description:
@@ -528,6 +544,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.7.4"
+  rich_text_widget:
+    dependency: "direct main"
+    description:
+      name: rich_text_widget
+      sha256: "7c8714158c22602c6f9a85efaf583b8eeb7b8db50f91035fe8896f5fe9c85647"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.7"
   shared_preferences:
     dependency: "direct main"
     description:
