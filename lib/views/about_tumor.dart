@@ -23,7 +23,7 @@ class _AboutTumorState extends State<AboutTumor> {
           color: Colors.black,
         ),
         title: const Text(
-          'Available Tumors',
+          'Brain Tumors',
           style: TextStyle(
             color: Colors.black,
             fontSize: 20.0,

@@ -69,8 +69,8 @@ class _SplashPageState extends State<SplashPage> {
                     'Brain Tumor Classification',
                     style: TextStyle(
                       fontSize: 28,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.blue.withOpacity(0.6),
+                      fontWeight: FontWeight.w500,
+                      color: Colors.blue.withOpacity(0.7),
                       letterSpacing: 1,
                     ),
                   )

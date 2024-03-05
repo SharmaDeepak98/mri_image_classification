@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mri_detection/extensions/app_color.dart';
 import 'package:image_picker/image_picker.dart';
@@ -213,24 +214,35 @@ class _ScannerViewState extends State<ScannerView> {
                             width: double.infinity,
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 24.0, vertical: 16),
-                            child: SingleChildScrollView(
-                              physics: const BouncingScrollPhysics(),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    brainTumor,
-                                    style: const TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w800,
-                                    ),
+                            child: Column(
+                              children: [
+                                Text(
+                                  brainTumor,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w800,
                                   ),
-                                  const SizedBox(height: 8),
-                                  Text(tumors
-                                      .firstWhere((element) => element.tumorName
-                                          .contains(brainTumor))
-                                      .tumorDes),
-                                ],
-                              ),
+                                ),
+                                const SizedBox(height: 6),
+                                Expanded(
+                                  child: ListView(
+                                    children: [
+                                      Text(
+                                        tumors
+                                            .firstWhere((element) => element
+                                                .tumorName
+                                                .contains(brainTumor))
+                                            .tumorDes,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 16,
+                                            letterSpacing: 1.0),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
                           );
                         });
