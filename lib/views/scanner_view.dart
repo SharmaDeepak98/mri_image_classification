@@ -234,7 +234,7 @@ class _ScannerViewState extends State<ScannerView> {
                                                 .tumorName
                                                 .contains(brainTumor))
                                             .tumorDes,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontWeight: FontWeight.w300,
                                             fontSize: 16,
                                             letterSpacing: 1.0),
