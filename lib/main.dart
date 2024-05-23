@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
-import './pages/homePage.dart';
-import 'package:get/get.dart';
+import 'package:mri_detection/pages/onboarding_page.dart';
+import 'package:mri_detection/pages/splash_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+  final showHome = prefs.getBool('showHome') ?? false;
+  runApp(MyApp(showHome: showHome));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.showHome});
+  final bool showHome;
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  GetMaterialApp(
-      home: homePage(),
+    precacheImage(const AssetImage("assets/images/brain.png"), context);
+    precacheImage(
+        const AssetImage("assets/images/bg_onboarding1.png"), context);
+    precacheImage(
+        const AssetImage("assets/images/bg_onboarding2.png"), context);
 
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SplashPage(showHome: showHome),
     );
   }
 }

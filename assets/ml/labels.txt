@@ -1,0 +1,13 @@
+Astrocitoma
+Carcinoma
+Germinoma
+Glioblastoma
+Granuloma
+Meduloblastoma
+Meningioma
+Neurocitoma
+Normal
+Oligodendroglioma
+Other
+Schwannoma
+Tuberculoma

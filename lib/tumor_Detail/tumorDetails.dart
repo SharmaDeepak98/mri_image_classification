@@ -8,15 +8,14 @@ class TumorDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: Text(
           tumor.tumorName,
-          style:
-              TextStyle(fontSize: 20.0, letterSpacing: 1, color: Colors.white),
+          style: const TextStyle(
+              fontSize: 20.0, letterSpacing: 1, color: Colors.white),
         ),
         backgroundColor: color1,
       ),
@@ -26,21 +25,10 @@ class TumorDetails extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding:
-                  const EdgeInsets.only(left: 10.0, right: 10.0, top: 20.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(tumor.imageUrl,
-                    fit: BoxFit.cover,
-                    width: screenWidth * 0.7,
-                    height: screenWidth * 0.7),
-              ),
-            ),
-            Padding(
               padding: const EdgeInsets.all(30.0),
               child: Text(
                 tumor.tumorDes,
-                style: TextStyle(fontSize: 15),
+                style: const TextStyle(fontSize: 15),
               ),
             ),
             // Add more images here

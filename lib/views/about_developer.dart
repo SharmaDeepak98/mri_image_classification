@@ -1,8 +1,6 @@
-// import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:mri_detection/extensions/app_color.dart';
-import 'package:mri_detection/widgets/expansion_tile_widget.dart';
 
 class AboutDeveloper extends StatefulWidget {
   const AboutDeveloper({super.key});
@@ -16,39 +14,42 @@ class _AboutDeveloperState extends State<AboutDeveloper> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        //centerTitle: true,
+        centerTitle: true,
         leading: const Icon(
           LineIcons.brain,
           color: Colors.black,
         ),
-        title: Text(
+        title: const Text(
           'About Developer',
           style: TextStyle(
-            color: Colors.black,
-            fontSize: 20.0,
-            letterSpacing: 1,
-            fontWeight: FontWeight.bold
+              color: Colors.black,
+              fontSize: 20.0,
+              letterSpacing: 1,
+              fontWeight: FontWeight.bold),
+        ),
+        // backgroundColor: color1,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: <Color>[
+                Color(0xFFFDD1CE),
+                Color(0xFF3A99FF),
+                Color(0xFF9AD0DC)
+              ],
+            ),
           ),
         ),
-        backgroundColor: color1,
-        centerTitle: true,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(children: [
-            
             Container(
-              padding: EdgeInsets.all(4.0),
+              padding: const EdgeInsets.all(4.0),
               child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Project Members',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0,
-                    ),
-                  ),
                   SizedBox(height: 2.0),
                   ListTile(
                     leading: Icon(
